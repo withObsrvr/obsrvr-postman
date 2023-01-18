@@ -11,6 +11,7 @@ files[] = {"id":"15889411-f40cbd38-f2ea-46ef-849d-b5653e3c3ae4","path":"Obsrvr A
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
+files[] = {"path":"index.yaml","metaData":{}}
 
 [relations.apiDefinition.metaData]
 type = openapi:3

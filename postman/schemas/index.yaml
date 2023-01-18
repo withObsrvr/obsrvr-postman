@@ -1,0 +1,22 @@
+openapi: 3.1.0
+info:
+    title: Obsrvr API
+    version: 0.0.1
+paths:
+    /test:
+        get:
+            responses:
+                "200":
+                    description: "OK"
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/status"
+                              
+components:
+    schemas:
+        status:
+            type: string
+            maxLength: 256
+            description: A Message
+            example: "OK"
