@@ -75,16 +75,16 @@ paths:
                                 size:
                                     type: string
                                     description: The Size ID of the instance
-                                hostname:
+                                name:
                                     type: string
-                                    description: The hostname of the instance
+                                    description: The name of the instance
                                 tag:
                                     type: string
                                     description: User-supplied tags for the instance
                             required:
                                 - region
                                 - size
-                                - hostname
+                                - name
     /tags:
         get:
             summary: List All Tags
@@ -143,6 +143,9 @@ components:
                 date_created:
                     type: string
                     description: "The date this instance was created"
+                name:
+                    type: string
+                    description: "The user-supplied name of the instance"
                 region:
                     type: string
                     description: "The region of the instance"
