@@ -3,10 +3,97 @@ info:
     title: Obsrvr API
     version: 0.0.1
 servers:
-    - url: https://api.withobsrvr.com/v1
+    - url: https://api.withobsrvr.com/{version}
+      description: Obsrvr API
+      variables:
+          version:
+              default: v1
 paths:
-    /test:
+    /horizon/managedInstances:
         get:
+            summary: List All Managed Instances
+            description: List All Managed Instances
+            tags:
+                - ManagedInstances
+            operationId: get-managed-instances
+            security:
+                - api_key: []
+            responses:
+                "200":
+                    description: "OK"
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    instances:
+                                        type: array
+                                        items:
+                                            $ref: "#/components/schemas/instance"
+                "400":
+                    description: Bad Request
+                "401":
+                    description: Unauthorized
+                "403":
+                    description: Forbidden
+                "404":
+                    description: Not Found
+        post:
+            summary: "Create a Managed Instance"
+            tags:
+                - ManagedInstances
+            operationId: create-managed-instance
+            security:
+                - api_key: []
+            responses:
+                "202":
+                    description: Created
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    instance:
+                                        $ref: "#/components/schemas/instance"
+                "400":
+                    description: Bad Request
+                "401":
+                    description: Unauthorized
+                "403":
+                    description: Forbidden
+                "404":
+                    description: Not Found
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                region:
+                                    type: string
+                                    description: The Region ID of where the instance is located
+                                size:
+                                    type: string
+                                    description: The Size ID of the instance
+                                hostname:
+                                    type: string
+                                    description: The hostname of the instance
+                                tag:
+                                    type: string
+                                    description: User-supplied tags for the instance
+                            required:
+                                - region
+                                - size
+                                - hostname
+    /tags:
+        get:
+            summary: List All Tags
+            description: List All Tags
+            tags:
+                - Tags
+            operationId: list-tags
+            security:
+                - api_key: []
             responses:
                 "200":
                     description: "OK"
@@ -14,11 +101,91 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/status"
+                "400":
+                    description: Bad Request
+                "401":
+                    description: Unauthorized
+                "403":
+                    description: Forbidden
+                "404":
+                    description: Not Found
+        post:
+            summary: Create a new Tag
+            description: Create a new Tag
+            tags:
+                - Tags
+            operationId: "create-tag"
+            security:
+                - api_key: []
+            responses:
+                "201":
+                    description: Created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/status"
+
                               
 components:
     schemas:
+        instance:
+            title: "instance"
+            type: object
+            tags: 
+                - Instances
+            properties:
+                id:
+                    type: string
+                    description: "A unique ID for the instance"
+                ip:
+                    type: string
+                    description: "IP Address of the instance"
+                date_created:
+                    type: string
+                    description: "The date this instance was created"
+                region:
+                    type: string
+                    description: "The region of the instance"
+                size:
+                    type: string
+                    description: "Size of instance"
+                status:
+                    type: string
+                    description: "The current status"
+                tag:
+                    type: string
+                    description: "The user-supplied tag for this instance"
+
+        region:
+            title: "region"
+            type: object
+            tags:
+                - region
+            description: "Region Information"
+            properties:
+                id:
+                    type: string
+                    description: "A unique ID for the Region"
+                name: 
+                    type: string
+                    description: "Name for the region"
+                features:
+                    type: array
+                    description: "An array of product features available in this region"
+                    items:
+                        type: string
+                sizes:
+                    type: array
+                    description: "An array of available sizes in this region"
+                    items:
+                        type: string
         status:
             type: string
             maxLength: 256
             description: A Message
             example: "OK"
+    securitySchemes:
+        api_key:
+            type: apiKey
+            name: api_key
+            in: header
