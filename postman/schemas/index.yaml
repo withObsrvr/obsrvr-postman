@@ -85,6 +85,39 @@ paths:
                                 - region
                                 - size
                                 - name
+    /horizon/managedInstances/{instance-id}:
+        parameters:
+            - name: instance-id
+              in: path
+              required: true
+              schema:
+                  type: string
+        get:
+            summary: Get Managed Instance
+            description: Get Managed Instance
+            tags:
+                - ManagedInstance
+            operationId: get-managed-instance
+            security:
+                - api_key: []
+            responses:
+                "200":
+                    description: "OK"
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    instances:
+                                        $ref: "#/components/schemas/instance"
+                "400":
+                    description: Bad Request
+                "401":
+                    description: Unauthorized
+                "403":
+                    description: Forbidden
+                "404":
+                    description: Not Found
     /tags:
         get:
             summary: List All Tags
