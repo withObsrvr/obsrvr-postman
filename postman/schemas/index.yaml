@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
     title: Obsrvr API
     version: 0.0.1
@@ -172,6 +172,8 @@ components:
         instance:
             title: "instance"
             type: object
+            tags: 
+                - Instances
             properties:
                 id:
                     type: string
@@ -204,6 +206,9 @@ components:
         region:
             title: "region"
             type: object
+            tags:
+                - region
+            description: "Region Information"
             properties:
                 id:
                     type: string
@@ -224,6 +229,9 @@ components:
         plans:
             title: plans
             type: object
+            tags:
+                - plans
+            descripton: Plans for instances
             properties:
                 id:
                     type: string
