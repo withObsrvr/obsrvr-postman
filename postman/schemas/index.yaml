@@ -218,6 +218,45 @@ components:
                     description: "An array of available sizes in this region"
                     items:
                         type: string
+        plans:
+            title: plans
+            type: object
+            tags:
+                - plans
+            descripton: Plans for instances
+            properties:
+                id:
+                    type: string
+                    description: A unique ID for the Plan
+                name:
+                    type: string
+                    description: The Plan name
+                vcpu_count:
+                    type: string
+                    description: The number of vCPUs in this Plan
+                ram:
+                    type: integer
+                    description: The amount of RAM in MB
+                disk:
+                    type: integer
+                    description: The disk size in GB
+                bandwidth:
+                    type: integer
+                    description: The monthly bandwidth quota in GB
+                price_monthly:
+                    type: integer
+                    description: The monthly cost in US Dollars
+                price_hourly:
+                    type: integer
+                    description: The hourly cost in US Dollars
+                regions:
+                    type: array
+                    description: An array of Regions where this plan is valid for use
+                    items:
+                        type: string
+                available:
+                    type: boolean
+                    description: Availability of this Plan
         status:
             type: string
             maxLength: 256
