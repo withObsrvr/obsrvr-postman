@@ -126,6 +126,26 @@ paths:
                     description: Forbidden
                 "404":
                     description: Not Found
+    /projects:
+        get:
+            summary: List All Projects
+            description: List All Projects
+            tags:
+                - Projects
+            operationId: list-projects
+            security:
+                - api_key: []
+            responses:
+                "200":
+                    description: OK
+                "401":
+                    description: Unauthorized
+                "403":
+                    description: Forbidden
+                "429":
+                    description: Too Many Requests
+                "500":
+                    description: Server Error
     /tags:
         get:
             summary: List All Tags
@@ -137,7 +157,7 @@ paths:
                 - api_key: []
             responses:
                 "200":
-                    description: "OK"
+                    description: OK
                     content:
                         application/json:
                             schema:
