@@ -1,0 +1,405 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 7rjn8lmpbmv52
+info:
+  title: Obsrvr API
+  version: 0.0.1
+  description: Obsrvr API 
+  contact:
+    email: opensource@withobsrvr.com
+    name: Obsrvr API
+    url: www.withobsrvr.com
+
+servers:
+  - url: 'https://api.withobsrvr.com/{version}'
+    description: Obsrvr API
+    variables:
+      version:
+        default: v1
+tags:
+  - name: Account
+    description: Account tag
+  - name: Billing
+    description: Billing tag
+  - name: ManagedInstance
+    description: Managed Instance tag
+  - name: ManagedInstances
+    description: Managed Instance tag
+  - name: Projects
+    description: Projects tag
+  - name: Tags
+    description: Tags tag
+  
+paths:
+  /account:
+    get:
+      summary: Get Account Info
+      description: Get account information
+      tags:
+        - Account
+      operationId: get-account
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/account'
+              examples:
+                response:
+                  value:
+                    account:
+                      name: Example User
+                      email: user@example.com
+                      status: active
+  /billing/balance:
+    get:
+      summary: Get User Balance
+      description: Get User Balance
+      tags:
+        - Billing
+      operationId: get-billing-balance
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceResponse'
+              examples:
+                success:
+                  $ref: '#/components/examples/get-billing-balance-success-200'
+
+  /horizon/managedInstances:
+    get:
+      summary: List All Managed Instances
+      description: List All Managed Instances
+      tags:
+        - ManagedInstances
+      operationId: get-managed-instances
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instances:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/instance'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      summary: Create a Managed Instance
+      tags:
+        - ManagedInstances
+      operationId: create-managed-instance
+      description: Create a Managed Instance
+      security:
+        - api_key: []
+      responses:
+        '202':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/instance'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                region:
+                  type: string
+                  description: The Region ID of where the instance is located
+                size:
+                  type: string
+                  description: The Size ID of the instance
+                name:
+                  type: string
+                  description: The name of the instance
+                tag:
+                  type: string
+                  description: User-supplied tags for the instance
+              required:
+                - region
+                - size
+                - name
+            examples:
+              request:
+                value:
+                  region: sfo
+                  size: do-4vcpu-16gb
+                  name: mhzn-01
+                  tag: mhzn_example
+  '/horizon/managedInstances/{instance-id}':
+    parameters:
+      - name: instance-id
+        description: ID for instance
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Get Managed Instance
+      description: Get Managed Instance
+      tags:
+        - ManagedInstance
+      operationId: get-managed-instance
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instances:
+                    $ref: '#/components/schemas/instance'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /projects:
+    get:
+      summary: List All Projects
+      description: List All Projects
+      tags:
+        - Projects
+      operationId: list-projects
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '429':
+          description: Too Many Requests
+        '500':
+          description: Server Error
+  /tags:
+    get:
+      summary: List All Tags
+      description: List All Tags
+      tags:
+        - Tags
+      operationId: list-tags
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      summary: Create a new Tag
+      description: Create a new Tag
+      tags:
+        - Tags
+      operationId: create-tag
+      security:
+        - api_key: []
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+components:
+  schemas:
+    account:
+      title: account
+      type: object
+      description: Account information
+      tags:
+        - Account
+      properties:
+        email:
+          type: string
+          description: Your email address
+        status:
+          type: string
+          description: Status of the account
+        uuid:
+          type: string
+          description: Unique universal identifier for user
+    BalanceResponse:
+      title: BalanceResponse
+      type: object
+      tags:
+        - Billing
+      properties:
+        account_balance:
+          type: number
+          description: Current account balance.
+        generated_at:
+          type: string
+          description: Time which the balance was generated
+        month_to_date_balance:
+          type: number
+          description: Balance as of the generated_at time
+
+    instance:
+      title: instance
+      type: object
+      tags:
+        - Instances
+      properties:
+        id:
+          type: string
+          description: A unique ID for the instance
+        ipv4:
+          type: string
+          description: IP Address of the instance
+        date_created:
+          type: string
+          description: The date this instance was created
+        name:
+          type: string
+          description: The user-supplied name of the instance
+        region:
+          type: string
+          description: The region of the instance
+        size:
+          type: string
+          description: Size of instance
+        status:
+          type: string
+          description: The current status
+        tag:
+          type: string
+          description: The user-supplied tag for this instance
+        version:
+          type: string
+          description: The version of the software for this instance
+    region:
+      title: region
+      type: object
+      tags:
+        - region
+      description: Region Information
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Region
+        name:
+          type: string
+          description: Name for the region
+        features:
+          type: array
+          description: An array of product features available in this region
+          items:
+            type: string
+        sizes:
+          type: array
+          description: An array of available sizes in this region
+          items:
+            type: string
+    plans:
+      title: plans
+      type: object
+      tags:
+        - plans
+      descripton: Plans for instances
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Plan
+        name:
+          type: string
+          description: The Plan name
+        vcpu_count:
+          type: string
+          description: The number of vCPUs in this Plan
+        ram:
+          type: integer
+          description: The amount of RAM in MB
+        disk:
+          type: integer
+          description: The disk size in GB
+        bandwidth:
+          type: integer
+          description: The monthly bandwidth quota in GB
+        price_monthly:
+          type: integer
+          description: The monthly cost in US Dollars
+        price_hourly:
+          type: integer
+          description: The hourly cost in US Dollars
+        regions:
+          type: array
+          description: An array of Regions where this plan is valid for use
+          items:
+            type: string
+        available:
+          type: boolean
+          description: Availability of this Plan
+    status:
+      type: string
+      maxLength: 256
+      description: A Message
+      example: OK
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+  examples:
+    get-billing-balance-success-200:
+      summary: Retrieve account balance
+      description: Retrieve the current balance of the User account
+      value:
+        account_balance: 43.21
+        month_to_date_balance: 12.34
+        generated_at: 2023-02-19T17:07:22Z
+
+
