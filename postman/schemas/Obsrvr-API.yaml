@@ -173,7 +173,7 @@ paths:
       summary: Get Managed Instance
       description: Get Managed Instance
       tags:
-        - ManagedInstance
+        - ManagedInstances
       operationId: get-managed-instance
       security:
         - api_key: []
