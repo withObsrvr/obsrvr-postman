@@ -2,17 +2,17 @@ openapi: 3.1.0
 x-stoplight:
   id: 7rjn8lmpbmv52
 info:
-  title: Obsrvr API
+  title: Obsrvr Platform API
   version: 0.0.1
-  description: Obsrvr API 
+  description: Obsrvr Platform API 
   contact:
-    email: opensource@withobsrvr.com
-    name: Obsrvr API
+    email: api-engineering@withobsrvr.com
+    name: Obsrvr Platform API
     url: www.withobsrvr.com
 
 servers:
   - url: 'https://api.withobsrvr.com/{version}'
-    description: Obsrvr API
+    description: Obsrvr Platform API
     variables:
       version:
         default: v1
@@ -401,5 +401,4 @@ components:
         account_balance: 43.21
         month_to_date_balance: 12.34
         generated_at: 2023-02-19T17:07:22Z
-
 
