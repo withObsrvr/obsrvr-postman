@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "10e527aa-a999-4504-bc83-5c5e9db2917f",
+		"_postman_id": "caa65859-c3ba-4adf-b3e8-a30e834fb39c",
 		"name": "Obsrvr Platform API",
-		"description": "Obsrvr API\n\nContact Support:\n Name: Obsrvr API\n Email: opensource@withobsrvr.com",
+		"description": "Obsrvr Platform API\n\nContact Support:\n Name: Obsrvr Platform API\n Email: api-engineering@withobsrvr.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "15889411-10e527aa-a999-4504-bc83-5c5e9db2917f"
+		"_uid": "15889411-caa65859-c3ba-4adf-b3e8-a30e834fb39c"
 	},
 	"item": [
 		{
@@ -15,7 +15,7 @@
 					"item": [
 						{
 							"name": "List All Managed Instances",
-							"id": "62d10534-499e-443d-b570-5abfab1afb76",
+							"id": "f1c66a7a-1b23-4933-a176-773e4812f982",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -67,7 +67,7 @@
 							},
 							"response": [
 								{
-									"id": "e15a0a55-caeb-420b-82ac-e89d00235888",
+									"id": "df0d00ca-141d-4c59-a9d0-d168ffc9e088",
 									"name": "OK",
 									"originalRequest": {
 										"method": "GET",
@@ -105,10 +105,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"instances\": [\n    {\n      \"id\": \"exercitation\",\n      \"ipv4\": \"Duis commodo in\",\n      \"date_created\": \"elit irure no\",\n      \"name\": \"qui deserunt aute\",\n      \"region\": \"ut laborum Lorem sint consectetur\",\n      \"size\": \"deserunt mollit nostrud\",\n      \"status\": \"in esse velit ipsum dolore\",\n      \"tag\": \"ipsum\",\n      \"version\": \"non reprehenderit\"\n    },\n    {\n      \"id\": \"qui ut c\",\n      \"ipv4\": \"dolor nostrud id eiusmod\",\n      \"date_created\": \"Lorem consequat anim\",\n      \"name\": \"est in dolore dolor\",\n      \"region\": \"laborum nulla\",\n      \"size\": \"nulla amet\",\n      \"status\": \"aliquip ullamco in nostrud\",\n      \"tag\": \"ad\",\n      \"version\": \"exercitation sunt ullamco eu\"\n    }\n  ]\n}"
+									"body": "{\n  \"instances\": [\n    {\n      \"id\": \"amet mollit magna\",\n      \"ipv4\": \"ut aliquip quis minim\",\n      \"date_created\": \"enim fugiat ea Ut\",\n      \"name\": \"in incididunt exercitation\",\n      \"region\": \"officia proident sit\",\n      \"size\": \"exercitation ullamco ea laborum\",\n      \"status\": \"minim aute\",\n      \"tag\": \"nisi et do\",\n      \"version\": \"ex est\"\n    },\n    {\n      \"id\": \"id nostrud\",\n      \"ipv4\": \"incididunt officia sit\",\n      \"date_created\": \"nisi dolore incididunt\",\n      \"name\": \"adipisicing exercitation\",\n      \"region\": \"Ut\",\n      \"size\": \"irure ad\",\n      \"status\": \"do\",\n      \"tag\": \"adipisicing Lorem\",\n      \"version\": \"velit ut qui Excepteur Lorem\"\n    }\n  ]\n}"
 								},
 								{
-									"id": "73c27112-e31b-4821-b39e-704dc1e2519a",
+									"id": "42a71c42-089d-4ae5-bf6f-7b7030f8df19",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "GET",
@@ -149,7 +149,7 @@
 									"body": ""
 								},
 								{
-									"id": "31ecd649-95ea-48b3-b243-05ebb684ee69",
+									"id": "ff9a4029-dcf0-428c-b7e3-4d7552b41b26",
 									"name": "Unauthorized",
 									"originalRequest": {
 										"method": "GET",
@@ -190,7 +190,7 @@
 									"body": ""
 								},
 								{
-									"id": "c965c2de-d7ea-4460-af22-6467f9b10818",
+									"id": "6f79258d-2f80-4193-babc-f6e8ac7b8b6b",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "GET",
@@ -231,7 +231,7 @@
 									"body": ""
 								},
 								{
-									"id": "01146a14-ace1-4107-b8bc-bbe8d2cbc53f",
+									"id": "dd2ef7c8-feeb-4e59-9832-c1251902b7b5",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -275,7 +275,7 @@
 						},
 						{
 							"name": "Create a Managed Instance",
-							"id": "5911bc3f-ef29-4dfe-85fe-888d6d4e9ec7",
+							"id": "603358af-87a2-4368-acf3-aca1e92ebec3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -340,7 +340,7 @@
 							},
 							"response": [
 								{
-									"id": "8c2fa1f1-5997-4857-86ea-a251129eb7d0",
+									"id": "3ed479e8-c059-4025-bef4-77d6cdb5c3a1",
 									"name": "Created",
 									"originalRequest": {
 										"method": "POST",
@@ -387,10 +387,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"instance\": {\n    \"id\": \"Excepteur officia\",\n    \"ipv4\": \"ad eu minim sed\",\n    \"date_created\": \"ut proident volu\",\n    \"name\": \"officia laborum m\",\n    \"region\": \"cupidatat ut sint cillum Excepteur\",\n    \"size\": \"in cupidatat\",\n    \"status\": \"incididunt et\",\n    \"tag\": \"nisi ut irure\",\n    \"version\": \"labore aliquip\"\n  }\n}"
+									"body": "{\n  \"instance\": {\n    \"id\": \"cupidatat cillum occaecat magna\",\n    \"ipv4\": \"cillum\",\n    \"date_created\": \"eu et\",\n    \"name\": \"proident nostrud\",\n    \"region\": \"eiusmod sit\",\n    \"size\": \"adipisicing ullamco ut\",\n    \"status\": \"velit officia tempor\",\n    \"tag\": \"ex sit commodo incididunt\",\n    \"version\": \"aliqua ipsum consequat incididunt\"\n  }\n}"
 								},
 								{
-									"id": "0cbaf0fb-e396-4679-8142-8487292d3b7c",
+									"id": "44878e5e-d713-4939-a71a-a618119ee98c",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "POST",
@@ -440,7 +440,7 @@
 									"body": ""
 								},
 								{
-									"id": "8db3e2b0-34e7-4910-b292-5bbb7a1ae56f",
+									"id": "e305d39f-05bf-4cef-b76a-1dddd1e98deb",
 									"name": "Unauthorized",
 									"originalRequest": {
 										"method": "POST",
@@ -490,7 +490,7 @@
 									"body": ""
 								},
 								{
-									"id": "225d24df-09ec-4cad-bb5f-870dd636ac3a",
+									"id": "46790667-6f37-4d90-b12e-1583b001c974",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "POST",
@@ -540,7 +540,7 @@
 									"body": ""
 								},
 								{
-									"id": "44aad4a8-6831-4e56-8e14-168e60694f95",
+									"id": "84a8279a-ffb5-444e-a080-6caf2c9c012c",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "POST",
@@ -593,7 +593,7 @@
 						},
 						{
 							"name": "Get Managed Instance",
-							"id": "e88b8a80-139d-4deb-9e2e-9ffde27e872b",
+							"id": "71e83db5-5675-403b-8f03-07b3fcb9aeba",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -651,7 +651,7 @@
 							},
 							"response": [
 								{
-									"id": "f2d41f47-1955-40df-97ff-193d2c7c322c",
+									"id": "99bc4078-5614-408f-a037-3ad0d0259ceb",
 									"name": "OK",
 									"originalRequest": {
 										"method": "GET",
@@ -695,10 +695,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"instances\": {\n    \"id\": \"\",\n    \"ipv4\": \"anim cillum ea\",\n    \"date_created\": \"exercitation dolor irure culpa mollit\",\n    \"name\": \"anim est\",\n    \"region\": \"sit aute reprehenderit Ut dolore\",\n    \"size\": \"do qui deserunt \",\n    \"status\": \"dolor\",\n    \"tag\": \"cupidatat dolore nostrud\",\n    \"version\": \"consequat\"\n  }\n}"
+									"body": "{\n  \"instances\": {\n    \"id\": \"velit\",\n    \"ipv4\": \"pariatur\",\n    \"date_created\": \"veniam consequat incididunt Excepteur\",\n    \"name\": \"officia incididunt fugiat cillum tempor\",\n    \"region\": \"cupidatat fugiat sit velit\",\n    \"size\": \"in et non\",\n    \"status\": \"in\",\n    \"tag\": \"dolore nulla\",\n    \"version\": \"elit\"\n  }\n}"
 								},
 								{
-									"id": "07325a15-8de8-41b3-bc87-6d936b65898b",
+									"id": "5b5b6ac1-06c6-42e8-a288-7e244c23b42f",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "GET",
@@ -745,7 +745,7 @@
 									"body": ""
 								},
 								{
-									"id": "ff690ad0-e03a-4898-b4ec-1b31f1208659",
+									"id": "ec15d784-3911-47b8-9d92-20a24269802e",
 									"name": "Unauthorized",
 									"originalRequest": {
 										"method": "GET",
@@ -792,7 +792,7 @@
 									"body": ""
 								},
 								{
-									"id": "c0142bfd-afef-45bb-a662-ce91bda2765a",
+									"id": "214cf08b-2b82-4d19-aad0-2fd372bd8c72",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "GET",
@@ -839,7 +839,7 @@
 									"body": ""
 								},
 								{
-									"id": "c010d0b6-fb1e-4e7b-b898-465c50aa4b47",
+									"id": "c9014b0b-fd57-42f5-8eb1-0430b826530a",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -888,17 +888,17 @@
 							]
 						}
 					],
-					"id": "27f02d4c-fbfb-47c9-9270-b7de2622ec13"
+					"id": "b9dd1410-021b-4a9b-b3a7-28b8e564db5d"
 				}
 			],
-			"id": "b878a6bc-e740-4cfc-8c96-226bf035db4c"
+			"id": "1d00bfd7-2a55-42f6-9c13-6df7b7544d8c"
 		},
 		{
 			"name": "tags",
 			"item": [
 				{
 					"name": "List All Tags",
-					"id": "d62d5f53-9d6c-44d1-843f-7c71a59d8034",
+					"id": "6e685188-b38a-4de9-bc68-aae55e4cd738",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -949,7 +949,7 @@
 					},
 					"response": [
 						{
-							"id": "46af87ba-6b15-44fb-af90-66a2f3a6c78d",
+							"id": "053a7eae-7332-4f54-b1a3-564e8fd78340",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -989,7 +989,7 @@
 							"body": "\"OK\""
 						},
 						{
-							"id": "29cc1bcd-68da-48f4-adc4-0ddb9e64df17",
+							"id": "6ff82b39-2d46-4f42-99f1-ab6f2b449f66",
 							"name": "Bad Request",
 							"originalRequest": {
 								"method": "GET",
@@ -1029,7 +1029,7 @@
 							"body": ""
 						},
 						{
-							"id": "1444af98-fac0-4a8d-8957-5812c9b0bc45",
+							"id": "77a96144-f4d1-4a29-826c-9d0cdfd2a9f2",
 							"name": "Unauthorized",
 							"originalRequest": {
 								"method": "GET",
@@ -1069,7 +1069,7 @@
 							"body": ""
 						},
 						{
-							"id": "cc701f84-b5e4-4d4b-bce2-49b50975ed6f",
+							"id": "dcb0599b-4b00-4bef-b7f5-19607f54df22",
 							"name": "Forbidden",
 							"originalRequest": {
 								"method": "GET",
@@ -1109,7 +1109,7 @@
 							"body": ""
 						},
 						{
-							"id": "87bf6a72-2642-4919-b4e9-afc19047922c",
+							"id": "bd39337a-ecdd-4f4d-be5e-9bd88259114f",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -1152,7 +1152,7 @@
 				},
 				{
 					"name": "Create a new Tag",
-					"id": "0ba9d8e4-0f97-4446-bf88-e64a9593cf84",
+					"id": "b8422bdc-02dd-4eb8-b517-2cbea50f9981",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1203,7 +1203,7 @@
 					},
 					"response": [
 						{
-							"id": "906931e0-3cde-4a1f-9b3b-fc76ee0c95af",
+							"id": "9274dd9d-ba46-4823-ab12-7c4148684755",
 							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
@@ -1245,11 +1245,11 @@
 					]
 				}
 			],
-			"id": "e7055bc3-07ce-4f47-add9-b9ffb697de53"
+			"id": "251685f4-8026-4dec-ad3a-55c1277a6952"
 		},
 		{
 			"name": "Get Account Info",
-			"id": "a5190a60-d651-4918-8fe7-0000410cb331",
+			"id": "360a7019-7fe1-4511-8b6f-c9bb0bbd9c3f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1300,7 +1300,7 @@
 			},
 			"response": [
 				{
-					"id": "1c54f2e0-0736-4fca-ae1c-5126c857ba55",
+					"id": "80f8b8bc-38a7-4ca7-9107-5829f70e575f",
 					"name": "OK",
 					"originalRequest": {
 						"method": "GET",
@@ -1343,7 +1343,7 @@
 		},
 		{
 			"name": "Get User Balance",
-			"id": "1c0578ab-1701-4136-895e-7606af377412",
+			"id": "386ea4b7-d01a-495d-a6dc-b4226013d385",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1395,7 +1395,7 @@
 			},
 			"response": [
 				{
-					"id": "31a0f3df-371d-440f-ba7b-771c9671e740",
+					"id": "447b33d4-eeee-40ec-9cab-a619dc0dd156",
 					"name": "OK",
 					"originalRequest": {
 						"method": "GET",
@@ -1439,7 +1439,7 @@
 		},
 		{
 			"name": "List All Projects",
-			"id": "1088ce47-7919-423d-978a-693bd4cdc9cb",
+			"id": "a2e9c7f6-1ec3-4a12-94bd-62e8f41e91d2",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1485,7 +1485,7 @@
 			},
 			"response": [
 				{
-					"id": "5f1bfc3e-f453-4941-9c97-009157ac92f4",
+					"id": "324e296c-30a6-492b-b0d1-bc140f5fab85",
 					"name": "OK",
 					"originalRequest": {
 						"method": "GET",
@@ -1525,7 +1525,7 @@
 					"body": ""
 				},
 				{
-					"id": "81be51ae-f368-42e6-83b7-561e88a7b505",
+					"id": "32284850-7c02-4ad9-aae2-c4230861063a",
 					"name": "Unauthorized",
 					"originalRequest": {
 						"method": "GET",
@@ -1565,7 +1565,7 @@
 					"body": ""
 				},
 				{
-					"id": "49df7911-7536-4699-93ff-03ce55c8c518",
+					"id": "ada47961-5641-4810-9e42-556c042880f3",
 					"name": "Forbidden",
 					"originalRequest": {
 						"method": "GET",
@@ -1605,7 +1605,7 @@
 					"body": ""
 				},
 				{
-					"id": "730b8ceb-d61f-4b14-8059-1b76a378c57a",
+					"id": "8b771ef7-4791-4327-87c2-868ca8e69781",
 					"name": "Too Many Requests",
 					"originalRequest": {
 						"method": "GET",
@@ -1645,7 +1645,7 @@
 					"body": ""
 				},
 				{
-					"id": "8ba55cf5-cd22-4fe9-85bf-836947debf0f",
+					"id": "9a274076-9d3b-42fd-bbf0-f807a5a333bd",
 					"name": "Server Error",
 					"originalRequest": {
 						"method": "GET",
@@ -1689,7 +1689,7 @@
 	],
 	"variable": [
 		{
-			"id": "60c17a0d-fb63-40bd-85b7-bba31b7d399d",
+			"id": "b19d613b-acc2-4a05-90b7-72e180ead87d",
 			"key": "version",
 			"value": "v1",
 			"type": "any",
@@ -1699,7 +1699,7 @@
 			}
 		},
 		{
-			"id": "f0bf3eca-de1f-4eaa-84b2-0059f5f416e3",
+			"id": "89d3652e-912c-45e5-8c02-f7a7970dc3a3",
 			"key": "baseUrl",
 			"value": "https://api.withobsrvr.com/{{version}}",
 			"type": "string"
