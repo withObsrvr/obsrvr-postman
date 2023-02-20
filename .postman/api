@@ -5,14 +5,14 @@ id = 5da68c70-0986-48e7-8b14-97a31bed703e
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"15889411-520ccbda-7674-46fb-bb6c-ad44f4534ba7","path":"Obsrvr API Endpoints.json","metaData":{}}
+files[] = {"id":"15889411-10e527aa-a999-4504-bc83-5c5e9db2917f","path":"Obsrvr Platform API.json","metaData":{}}
 
 [relations.collections.metaData]
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
-files[] = {"path":"index.yaml","metaData":{}}
+files[] = {"path":"Obsrvr-API.yaml","metaData":{}}
 
 [relations.apiDefinition.metaData]
 type = openapi:3_1
-rootFiles[] = index.yaml
+rootFiles[] = Obsrvr-API.yaml

@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "520ccbda-7674-46fb-bb6c-ad44f4534ba7",
-		"name": "Obsrvr API Endpoints",
+		"_postman_id": "10e527aa-a999-4504-bc83-5c5e9db2917f",
+		"name": "Obsrvr Platform API",
+		"description": "Obsrvr API\n\nContact Support:\n Name: Obsrvr API\n Email: opensource@withobsrvr.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "15889411-520ccbda-7674-46fb-bb6c-ad44f4534ba7"
+		"_uid": "15889411-10e527aa-a999-4504-bc83-5c5e9db2917f"
 	},
 	"item": [
 		{
@@ -14,7 +15,7 @@
 					"item": [
 						{
 							"name": "List All Managed Instances",
-							"id": "3721fee8-8088-4601-8894-10aa7e9806e8",
+							"id": "62d10534-499e-443d-b570-5abfab1afb76",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -66,7 +67,7 @@
 							},
 							"response": [
 								{
-									"id": "e17dc783-48a3-4aae-a2ce-9d8a39c0197f",
+									"id": "e15a0a55-caeb-420b-82ac-e89d00235888",
 									"name": "OK",
 									"originalRequest": {
 										"method": "GET",
@@ -104,10 +105,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"instances\": [\n    {\n      \"id\": \"non ad Duis veniam\",\n      \"ipv4\": \"dolor veniam anim eu\",\n      \"date_created\": \"proident esse\",\n      \"name\": \"labore dolore velit\",\n      \"region\": \"aute fugiat magna cupidatat\",\n      \"size\": \"reprehenderit id Excepteur labore\",\n      \"status\": \"eiusmod o\",\n      \"tag\": \"culpa occaecat\",\n      \"version\": \"eu ullamco ipsum\"\n    },\n    {\n      \"id\": \"Lorem cillum esse\",\n      \"ipv4\": \"occaecat nulla veniam consectetur\",\n      \"date_created\": \"adipisicing ipsum quis sed\",\n      \"name\": \"Excepteur\",\n      \"region\": \"quis dolor amet\",\n      \"size\": \"nisi labore amet\",\n      \"status\": \"esse commodo sit reprehenderit\",\n      \"tag\": \"laboris ut ullamco nostrud incididunt\",\n      \"version\": \"ad sit sunt enim\"\n    }\n  ]\n}"
+									"body": "{\n  \"instances\": [\n    {\n      \"id\": \"exercitation\",\n      \"ipv4\": \"Duis commodo in\",\n      \"date_created\": \"elit irure no\",\n      \"name\": \"qui deserunt aute\",\n      \"region\": \"ut laborum Lorem sint consectetur\",\n      \"size\": \"deserunt mollit nostrud\",\n      \"status\": \"in esse velit ipsum dolore\",\n      \"tag\": \"ipsum\",\n      \"version\": \"non reprehenderit\"\n    },\n    {\n      \"id\": \"qui ut c\",\n      \"ipv4\": \"dolor nostrud id eiusmod\",\n      \"date_created\": \"Lorem consequat anim\",\n      \"name\": \"est in dolore dolor\",\n      \"region\": \"laborum nulla\",\n      \"size\": \"nulla amet\",\n      \"status\": \"aliquip ullamco in nostrud\",\n      \"tag\": \"ad\",\n      \"version\": \"exercitation sunt ullamco eu\"\n    }\n  ]\n}"
 								},
 								{
-									"id": "efecfd96-4a14-4352-9ba6-f6f954a3fbd5",
+									"id": "73c27112-e31b-4821-b39e-704dc1e2519a",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "GET",
@@ -148,7 +149,7 @@
 									"body": ""
 								},
 								{
-									"id": "41a6d95a-1d3a-47b3-b63b-16155757791c",
+									"id": "31ecd649-95ea-48b3-b243-05ebb684ee69",
 									"name": "Unauthorized",
 									"originalRequest": {
 										"method": "GET",
@@ -189,7 +190,7 @@
 									"body": ""
 								},
 								{
-									"id": "514101e6-aea8-4f2f-9abf-95211023d00b",
+									"id": "c965c2de-d7ea-4460-af22-6467f9b10818",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "GET",
@@ -230,7 +231,7 @@
 									"body": ""
 								},
 								{
-									"id": "6400c9ff-b668-4173-8fdf-8522d9b382ba",
+									"id": "01146a14-ace1-4107-b8bc-bbe8d2cbc53f",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -274,7 +275,7 @@
 						},
 						{
 							"name": "Create a Managed Instance",
-							"id": "b874f0eb-42a5-4023-ac9d-d1f81fc702e2",
+							"id": "5911bc3f-ef29-4dfe-85fe-888d6d4e9ec7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -312,7 +313,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"region\": \"sfo\",\n  \"size\": \"do-4vcpu-16gb\",\n  \"name\": \"mhzn-01\",\n  \"tag\": \"mhzn_example\"\n}",
+									"raw": "{\n  \"region\": \"<string>\",\n  \"size\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -334,11 +335,12 @@
 											"value": "{{version}}"
 										}
 									]
-								}
+								},
+								"description": "Create a Managed Instance"
 							},
 							"response": [
 								{
-									"id": "ddbc4fa4-b5af-47c3-81f0-007efe30bbf3",
+									"id": "8c2fa1f1-5997-4857-86ea-a251129eb7d0",
 									"name": "Created",
 									"originalRequest": {
 										"method": "POST",
@@ -385,10 +387,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"instance\": {\n    \"id\": \"ipsum voluptate\",\n    \"ipv4\": \"occaecat qui anim enim\",\n    \"date_created\": \"qui veniam aute ad\",\n    \"name\": \"deserunt Ut cillum\",\n    \"region\": \"tempor dolor\",\n    \"size\": \"deserunt irure\",\n    \"status\": \"consectetur ad\",\n    \"tag\": \"nulla\",\n    \"version\": \"velit et\"\n  }\n}"
+									"body": "{\n  \"instance\": {\n    \"id\": \"Excepteur officia\",\n    \"ipv4\": \"ad eu minim sed\",\n    \"date_created\": \"ut proident volu\",\n    \"name\": \"officia laborum m\",\n    \"region\": \"cupidatat ut sint cillum Excepteur\",\n    \"size\": \"in cupidatat\",\n    \"status\": \"incididunt et\",\n    \"tag\": \"nisi ut irure\",\n    \"version\": \"labore aliquip\"\n  }\n}"
 								},
 								{
-									"id": "77da7e41-21f6-4096-bc47-9ff1ef8811ff",
+									"id": "0cbaf0fb-e396-4679-8142-8487292d3b7c",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "POST",
@@ -438,7 +440,7 @@
 									"body": ""
 								},
 								{
-									"id": "6fbed894-15c3-4716-af54-a6265b487d68",
+									"id": "8db3e2b0-34e7-4910-b292-5bbb7a1ae56f",
 									"name": "Unauthorized",
 									"originalRequest": {
 										"method": "POST",
@@ -488,7 +490,7 @@
 									"body": ""
 								},
 								{
-									"id": "fd8604c0-b1e7-466d-9b56-33b754cf2a86",
+									"id": "225d24df-09ec-4cad-bb5f-870dd636ac3a",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "POST",
@@ -538,7 +540,7 @@
 									"body": ""
 								},
 								{
-									"id": "052c2222-09f0-463a-9b0e-aea98c6f766d",
+									"id": "44aad4a8-6831-4e56-8e14-168e60694f95",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "POST",
@@ -591,7 +593,7 @@
 						},
 						{
 							"name": "Get Managed Instance",
-							"id": "90077655-e434-41af-8133-a36c28aa88b7",
+							"id": "e88b8a80-139d-4deb-9e2e-9ffde27e872b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -636,8 +638,8 @@
 									"variable": [
 										{
 											"key": "instance-id",
-											"value": "tempor aliquip ullamco velit offic",
-											"description": "(Required) "
+											"value": "<string>",
+											"description": "(Required) ID for instance"
 										},
 										{
 											"key": "version",
@@ -649,7 +651,7 @@
 							},
 							"response": [
 								{
-									"id": "43177dfe-8458-4cb4-ba20-8c476595fbf4",
+									"id": "f2d41f47-1955-40df-97ff-193d2c7c322c",
 									"name": "OK",
 									"originalRequest": {
 										"method": "GET",
@@ -673,8 +675,8 @@
 											"variable": [
 												{
 													"key": "instance-id",
-													"value": "tempor aliquip ullamco velit offic",
-													"description": "(Required) "
+													"value": "<string>",
+													"description": "(Required) ID for instance"
 												},
 												{
 													"key": "version",
@@ -693,10 +695,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"instances\": {\n    \"id\": \"anim ut\",\n    \"ipv4\": \"pariatur tempor\",\n    \"date_created\": \"proident in\",\n    \"name\": \"proident velit laborum nisi\",\n    \"region\": \"do\",\n    \"size\": \"deserunt esse Excepteur nulla\",\n    \"status\": \"commodo ut Lorem\",\n    \"tag\": \"proident fugiat\",\n    \"version\": \"dolor id anim\"\n  }\n}"
+									"body": "{\n  \"instances\": {\n    \"id\": \"\",\n    \"ipv4\": \"anim cillum ea\",\n    \"date_created\": \"exercitation dolor irure culpa mollit\",\n    \"name\": \"anim est\",\n    \"region\": \"sit aute reprehenderit Ut dolore\",\n    \"size\": \"do qui deserunt \",\n    \"status\": \"dolor\",\n    \"tag\": \"cupidatat dolore nostrud\",\n    \"version\": \"consequat\"\n  }\n}"
 								},
 								{
-									"id": "864c961d-29f6-4ce5-b379-dc45e78f0f78",
+									"id": "07325a15-8de8-41b3-bc87-6d936b65898b",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "GET",
@@ -720,8 +722,8 @@
 											"variable": [
 												{
 													"key": "instance-id",
-													"value": "tempor aliquip ullamco velit offic",
-													"description": "(Required) "
+													"value": "<string>",
+													"description": "(Required) ID for instance"
 												},
 												{
 													"key": "version",
@@ -743,7 +745,7 @@
 									"body": ""
 								},
 								{
-									"id": "79d4f409-0a22-4109-ba7c-f0fb4ce433cb",
+									"id": "ff690ad0-e03a-4898-b4ec-1b31f1208659",
 									"name": "Unauthorized",
 									"originalRequest": {
 										"method": "GET",
@@ -767,8 +769,8 @@
 											"variable": [
 												{
 													"key": "instance-id",
-													"value": "tempor aliquip ullamco velit offic",
-													"description": "(Required) "
+													"value": "<string>",
+													"description": "(Required) ID for instance"
 												},
 												{
 													"key": "version",
@@ -790,7 +792,7 @@
 									"body": ""
 								},
 								{
-									"id": "21d64453-49bc-4180-bd18-4a1fb65346ab",
+									"id": "c0142bfd-afef-45bb-a662-ce91bda2765a",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "GET",
@@ -814,8 +816,8 @@
 											"variable": [
 												{
 													"key": "instance-id",
-													"value": "tempor aliquip ullamco velit offic",
-													"description": "(Required) "
+													"value": "<string>",
+													"description": "(Required) ID for instance"
 												},
 												{
 													"key": "version",
@@ -837,7 +839,7 @@
 									"body": ""
 								},
 								{
-									"id": "bb32e9cd-9abd-4ffe-8403-a86b47657964",
+									"id": "c010d0b6-fb1e-4e7b-b898-465c50aa4b47",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -861,8 +863,8 @@
 											"variable": [
 												{
 													"key": "instance-id",
-													"value": "tempor aliquip ullamco velit offic",
-													"description": "(Required) "
+													"value": "<string>",
+													"description": "(Required) ID for instance"
 												},
 												{
 													"key": "version",
@@ -886,17 +888,17 @@
 							]
 						}
 					],
-					"id": "c50fa6c7-30d9-469f-8bed-e63fc5dc1fc1"
+					"id": "27f02d4c-fbfb-47c9-9270-b7de2622ec13"
 				}
 			],
-			"id": "9dcfa353-2ee8-4555-a99b-1e7d0d062664"
+			"id": "b878a6bc-e740-4cfc-8c96-226bf035db4c"
 		},
 		{
 			"name": "tags",
 			"item": [
 				{
 					"name": "List All Tags",
-					"id": "7d81dd91-4f93-4d18-b18c-66da2dd46b50",
+					"id": "d62d5f53-9d6c-44d1-843f-7c71a59d8034",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -947,7 +949,7 @@
 					},
 					"response": [
 						{
-							"id": "141f3c43-6842-4148-b6a8-82c4b1a4da13",
+							"id": "46af87ba-6b15-44fb-af90-66a2f3a6c78d",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -987,7 +989,7 @@
 							"body": "\"OK\""
 						},
 						{
-							"id": "ea7c4de0-cac2-423e-8746-6b6ab471fb0a",
+							"id": "29cc1bcd-68da-48f4-adc4-0ddb9e64df17",
 							"name": "Bad Request",
 							"originalRequest": {
 								"method": "GET",
@@ -1027,7 +1029,7 @@
 							"body": ""
 						},
 						{
-							"id": "6c720660-43c6-4bcd-ae80-96c62c815dd9",
+							"id": "1444af98-fac0-4a8d-8957-5812c9b0bc45",
 							"name": "Unauthorized",
 							"originalRequest": {
 								"method": "GET",
@@ -1067,7 +1069,7 @@
 							"body": ""
 						},
 						{
-							"id": "6f8e9273-21bc-4755-bf07-f6eb55faa61a",
+							"id": "cc701f84-b5e4-4d4b-bce2-49b50975ed6f",
 							"name": "Forbidden",
 							"originalRequest": {
 								"method": "GET",
@@ -1107,7 +1109,7 @@
 							"body": ""
 						},
 						{
-							"id": "6c910026-594d-4da5-b746-cbb8f6c5b453",
+							"id": "87bf6a72-2642-4919-b4e9-afc19047922c",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -1150,7 +1152,7 @@
 				},
 				{
 					"name": "Create a new Tag",
-					"id": "7cb2a506-12f3-45a9-a849-bb48321c828f",
+					"id": "0ba9d8e4-0f97-4446-bf88-e64a9593cf84",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1201,7 +1203,7 @@
 					},
 					"response": [
 						{
-							"id": "1c517435-8e35-4d06-8745-8ee0288c6175",
+							"id": "906931e0-3cde-4a1f-9b3b-fc76ee0c95af",
 							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
@@ -1243,12 +1245,451 @@
 					]
 				}
 			],
-			"id": "df0eee9e-d21f-4d3c-9cda-ed7715c3d065"
+			"id": "e7055bc3-07ce-4f47-add9-b9ffb697de53"
+		},
+		{
+			"name": "Get Account Info",
+			"id": "a5190a60-d651-4918-8fe7-0000410cb331",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{apiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/account",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"account"
+					],
+					"variable": [
+						{
+							"key": "version",
+							"value": "{{version}}"
+						}
+					]
+				},
+				"description": "Get account information"
+			},
+			"response": [
+				{
+					"id": "1c54f2e0-0736-4fca-ae1c-5126c857ba55",
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/account",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"account\": {\n    \"name\": \"Example User\",\n    \"email\": \"user@example.com\",\n    \"status\": \"active\"\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User Balance",
+			"id": "1c0578ab-1701-4136-895e-7606af377412",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{apiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/billing/balance",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"billing",
+						"balance"
+					],
+					"variable": [
+						{
+							"key": "version",
+							"value": "{{version}}"
+						}
+					]
+				},
+				"description": "Get User Balance"
+			},
+			"response": [
+				{
+					"id": "31a0f3df-371d-440f-ba7b-771c9671e740",
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/billing/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"billing",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"account_balance\": 43.21,\n  \"month_to_date_balance\": 12.34,\n  \"generated_at\": \"2023-02-19T17:07:22.000Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List All Projects",
+			"id": "1088ce47-7919-423d-978a-693bd4cdc9cb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{apiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/projects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"projects"
+					],
+					"variable": [
+						{
+							"key": "version",
+							"value": "{{version}}"
+						}
+					]
+				},
+				"description": "List All Projects"
+			},
+			"response": [
+				{
+					"id": "5f1bfc3e-f453-4941-9c97-009157ac92f4",
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "81be51ae-f368-42e6-83b7-561e88a7b505",
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "49df7911-7536-4699-93ff-03ce55c8c518",
+					"name": "Forbidden",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "730b8ceb-d61f-4b14-8059-1b76a378c57a",
+					"name": "Too Many Requests",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "Too Many Requests",
+					"code": 429,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "8ba55cf5-cd22-4fe9-85bf-836947debf0f",
+					"name": "Server Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "api_key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "version",
+									"value": "{{version}}"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		}
 	],
 	"variable": [
 		{
-			"id": "cfbb4671-a9e0-4667-a582-e3db31a007bd",
+			"id": "60c17a0d-fb63-40bd-85b7-bba31b7d399d",
 			"key": "version",
 			"value": "v1",
 			"type": "any",
@@ -1258,7 +1699,7 @@
 			}
 		},
 		{
-			"id": "18df2f6c-92a1-4fa6-9054-e037bddda5a6",
+			"id": "f0bf3eca-de1f-4eaa-84b2-0059f5f416e3",
 			"key": "baseUrl",
 			"value": "https://api.withobsrvr.com/{{version}}",
 			"type": "string"
