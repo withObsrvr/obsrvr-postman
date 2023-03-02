@@ -4,12 +4,15 @@ x-stoplight:
 info:
   title: Obsrvr Platform API
   version: 0.0.1
-  description: Obsrvr Platform API 
+  description: |
+    With the Obsrvr Platform API, you can use HTTP requests to manage your instances and other resources programmatically. You can do everything with the API that you can do through the Obsrvr Console, except for making personal access tokens.
+  license:
+    url: 'https://opensource.org/license/mit/'
+    name: MIT
   contact:
     email: api-engineering@withobsrvr.com
     name: Obsrvr Platform API
     url: www.withobsrvr.com
-
 servers:
   - url: 'https://api.withobsrvr.com/{version}'
     description: Obsrvr Platform API
@@ -25,16 +28,23 @@ tags:
     description: Managed Instance tag
   - name: ManagedInstances
     description: Managed Instance tag
+  - name: Networks
+    description: Network tag
+  - name: Plans
+    description: Plans tag
   - name: Projects
     description: Projects tag
+  - name: Regions
+    description: Regions tag
   - name: Tags
     description: Tags tag
-  
 paths:
   /account:
+    description: Provides information about your account
     get:
-      summary: Get Account Info
-      description: Get account information
+      summary: Get Account Information
+      description: |
+        To show information about the current account, send a GET request to /{version}/account
       tags:
         - Account
       operationId: get-account
@@ -49,14 +59,10 @@ paths:
                 type: object
                 properties:
                   account:
-                    $ref: '#/components/schemas/account'
+                    $ref: '#/components/schemas/Account'
               examples:
-                response:
-                  value:
-                    account:
-                      name: Example User
-                      email: user@example.com
-                      status: active
+                success:
+                  $ref: '#/components/examples/get-account-success-200'
   /billing/balance:
     get:
       summary: Get User Balance
@@ -76,8 +82,7 @@ paths:
               examples:
                 success:
                   $ref: '#/components/examples/get-billing-balance-success-200'
-
-  /horizon/managedInstances:
+  /instances:
     get:
       summary: List All Managed Instances
       description: List All Managed Instances
@@ -97,15 +102,31 @@ paths:
                   instances:
                     type: array
                     items:
-                      $ref: '#/components/schemas/instance'
+                      $ref: '#/components/schemas/Instance'
         '400':
           description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '403':
           description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
     post:
       summary: Create a Managed Instance
       tags:
@@ -116,52 +137,47 @@ paths:
         - api_key: []
       responses:
         '202':
-          description: Created
+          description: Provisioning in Process
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   instance:
-                    $ref: '#/components/schemas/instance'
+                    $ref: '#/components/schemas/Instance'
         '400':
           description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '403':
           description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                region:
-                  type: string
-                  description: The Region ID of where the instance is located
-                size:
-                  type: string
-                  description: The Size ID of the instance
-                name:
-                  type: string
-                  description: The name of the instance
-                tag:
-                  type: string
-                  description: User-supplied tags for the instance
-              required:
-                - region
-                - size
-                - name
+              $ref: '#/components/schemas/InstanceCreate'
             examples:
               request:
-                value:
-                  region: sfo
-                  size: do-4vcpu-16gb
-                  name: mhzn-01
-                  tag: mhzn_example
-  '/horizon/managedInstances/{instance-id}':
+                $ref: '#/components/examples/get-create-instance'
+  '/instances/{instance-id}':
     parameters:
       - name: instance-id
         description: ID for instance
@@ -186,15 +202,31 @@ paths:
                 type: object
                 properties:
                   instances:
-                    $ref: '#/components/schemas/instance'
+                    $ref: '#/components/schemas/Instance'
         '400':
           description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '403':
           description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
   /projects:
     get:
       summary: List All Projects
@@ -207,14 +239,133 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '403':
           description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '429':
           description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '500':
           description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /networks:
+    get:
+      summary: Get Networks
+      description: Get Networks
+      tags:
+        - Networks
+      operationId: get-networks
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Networks'
+              examples:
+                success:
+                  $ref: '#/components/examples/get-network'
+  /plans:
+    get:
+      summary: List All Plans
+      description: List All Plans
+      tags:
+        - Plans
+      operationId: list-plans
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plans'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /regions:
+    get:
+      summary: List All Regions
+      description: List All Regions
+      tags:
+        - Regions
+      operationId: list-regions
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
   /tags:
     get:
       summary: List All Tags
@@ -230,15 +381,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
         '400':
           description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '403':
           description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
     post:
       summary: Create a new Tag
       description: Create a new Tag
@@ -253,11 +420,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
 components:
   schemas:
-    account:
+    Account:
       title: account
+      x-stoplight:
+        id: 0e1600ed7e492
       type: object
       description: Account information
       tags:
@@ -281,15 +450,66 @@ components:
         account_balance:
           type: number
           description: Current account balance.
+        currency:
+          type: string
+          description: ISO 4217 Currency Codes
         generated_at:
           type: string
           description: Time which the balance was generated
         month_to_date_balance:
           type: number
           description: Balance as of the generated_at time
-
-    instance:
+    Errors:
+      required:
+        - errors
+      properties:
+        errors:
+          description: A list of errors
+          type: array
+          minItems: 1
+          x-stoplight:
+            id: b027744ccd639
+          items:
+            required:
+              - code
+              - message
+            properties:
+              code:
+                type: string
+                enum:
+                  - required
+                  - incorrect
+                  - unknown
+                  - unexpected
+                description: Generic human and machine readable error code
+              message:
+                type: string
+                description: Human readable error message
+              source:
+                title: ErrorSource
+                description: A human readable error message
+                required:
+                  - location
+                  - name
+                properties:
+                  location:
+                    type: string
+                    enum:
+                      - path
+                      - query
+                      - header
+                      - body
+                  name:
+                    type: string
+                    description: Name of the property causing the error
+                  path:
+                    type: string
+                    description: |
+                      (`#/path/to/property`) Source of the error (only used when location is body)
+    Instance:
       title: instance
+      x-stoplight:
+        id: ffc60de2a4286
       type: object
       tags:
         - Instances
@@ -297,9 +517,9 @@ components:
         id:
           type: string
           description: A unique ID for the instance
-        ipv4:
+        uri:
           type: string
-          description: IP Address of the instance
+          description: Address of the instance
         date_created:
           type: string
           description: The date this instance was created
@@ -309,20 +529,69 @@ components:
         region:
           type: string
           description: The region of the instance
-        size:
+        plan:
           type: string
-          description: Size of instance
+          description: Size slug of instance
         status:
           type: string
           description: The current status
         tag:
           type: string
           description: The user-supplied tag for this instance
+        instance_type:
+          type: string
+          description: Type of instance
         version:
           type: string
           description: The version of the software for this instance
-    region:
+    InstanceCreate:
+      properties:
+        region:
+          type: string
+          description: The Region ID of where the instance is located
+        size:
+          type: string
+          description: The Size ID of the instance
+        name:
+          type: string
+          description: The name of the instance
+        instance_type:
+          type: string
+          description: Type of instance
+          default: shared
+          enum:
+            - shared
+            - dedicated
+        tag:
+          type: string
+          description: User-supplied tags for the instance
+      required:
+        - region
+        - size
+        - name
+    Networks:
+      title: networks
+      x-stoplight:
+        id: dcf230a1f26d1
+      type: object
+      tags:
+        - networks
+      description: Network Information
+      properties:
+        id:
+          type: string
+          description: A unique ID for the network
+          enum:
+            - stellar-futurenet
+            - stellar-testnet
+            - stellar-pubnet
+        name:
+          type: string
+          description: Name for the network
+    Region:
       title: region
+      x-stoplight:
+        id: ee70215cb69bb
       type: object
       tags:
         - region
@@ -339,13 +608,15 @@ components:
           description: An array of product features available in this region
           items:
             type: string
-        sizes:
+        plans:
           type: array
-          description: An array of available sizes in this region
+          description: An array of available plans in this region
           items:
             type: string
-    plans:
+    Plans:
       title: plans
+      x-stoplight:
+        id: 7c39baee01e51
       type: object
       tags:
         - plans
@@ -383,8 +654,10 @@ components:
         available:
           type: boolean
           description: Availability of this Plan
-    status:
+    Status:
       type: string
+      x-stoplight:
+        id: 024ee7cb0c022
       maxLength: 256
       description: A Message
       example: OK
@@ -399,6 +672,28 @@ components:
       description: Retrieve the current balance of the User account
       value:
         account_balance: 43.21
+        currency: USD
         month_to_date_balance: 12.34
-        generated_at: 2023-02-19T17:07:22Z
-
+        generated_at: '2023-02-19T17:07:22Z'
+    get-account-success-200:
+      summary: Retrieve account information
+      description: Retrieve account information for the User account
+      value:
+        account:
+          name: Example User
+          email: user@example.com
+          status: active
+    get-create-instance:
+      summary: Create instance request
+      description: Request body for a create instance request
+      value:
+        region: sfo
+        size: do-4vcpu-16gb
+        name: mhzn-01
+        tag: mhzn_example
+    get-network:
+      summary: Get Network
+      description: Request body for a get network request
+      value:
+        id: stellar-pubnet
+        name: Stellar Public
