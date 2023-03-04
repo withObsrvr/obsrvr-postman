@@ -14,7 +14,7 @@ info:
     name: Obsrvr Platform API
     url: www.withobsrvr.com
 servers:
-  - url: 'https://api.withobsrvr.com/{version}'
+  - url: 'https://api.nodeswithobsrvr.co'
     description: Obsrvr Platform API
     variables:
       version:
@@ -508,6 +508,7 @@ components:
                       (`#/path/to/property`) Source of the error (only used when location is body)
     Instance:
       title: instance
+      description: Instance information
       x-stoplight:
         id: ffc60de2a4286
       type: object
